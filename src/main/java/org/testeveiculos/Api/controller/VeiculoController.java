@@ -3,33 +3,48 @@
 package org.testeveiculos.Api.controller; // 🛑 PACOTE CONTROLLER
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.testeveiculos.Api.model.Veiculo;
 import org.testeveiculos.Api.service.VeiculoService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/veiculos")
 @CrossOrigin(origins = "http://localhost:4200") // 🛑 Essencial para o Angular
 public class VeiculoController {
 
-    @Autowired
-    private VeiculoService veiculoService;
+private final VeiculoService veiculoService;
+public VeiculoController (VeiculoService veiculoService){
+    this.veiculoService = veiculoService;
+}
 
-    // ENDPOINT 1: Listar veículos (GET http://localhost:8080/api/veiculos)
+
     @GetMapping
     public List<Veiculo> getAllVeiculos() {
-        return veiculoService.findAll();
+        return veiculoService.getAllVeiculos();
     }
 
-    // ENDPOINT 2: Buscar veículo por ID (GET http://localhost:8080/api/veiculos/{id})
     @GetMapping("/{id}")
-    public ResponseEntity<Veiculo> getVeiculoById(@PathVariable Long id) {
-        return veiculoService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public Veiculo getVeiculoById(@PathVariable Long id) {
+        Optional<Veiculo> veiculo = veiculoService.getVeiculoById(id);
+        return veiculo.orElse(null);
+    }
+
+    @GetMapping("/marca/{marca}")
+    public List<Veiculo> getVeiculosByMarca(@PathVariable String marca) {
+
+        return veiculoService.getVeiculosByMarca(marca);
+    }
+
+    @GetMapping("/marcas")
+    public List<String> getAllMarcas() {
+        return veiculoService.getAllMarcas();
+    }
+
+    @GetMapping("/search")
+    public List<Veiculo> searchVeiculos(@RequestParam(required = false) String q) {
+        return veiculoService.searchVeiculos(q);
     }
 }

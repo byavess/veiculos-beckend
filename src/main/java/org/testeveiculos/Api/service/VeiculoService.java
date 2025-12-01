@@ -14,15 +14,15 @@ public class VeiculoService {
     public VeiculoService() {
         // Inicializando com dados de exemplo baseados na sua estrutura de pastas
         veiculos.add(new Veiculo(1L, "BMW", "X1", 2023, 250000.00,
-                "BMW X1 2023 - Luxo e performance","vermelha", "/images/veiculos/bmw/bmw-x1.jpg"));
+                "BMW X1 2023 - Luxo e performance","vermelha", "veiculos/bmw/bmw.webp"));
         veiculos.add(new Veiculo(2L, "Renault", "Duster", 2023, 120000.00,
-                "Renault Duster 2023 - SUV robusto","azul", "/images/veiculos/duster/duster.jpg"));
+                "Renault Duster 2023 - SUV robusto","azul", "veiculos/bmw/bmw.webp"));
         veiculos.add(new Veiculo(3L, "Ford", "EcoSport", 2023, 110000.00,
-                "Ford EcoSport 2023 - Compacto e versátil","preta", "/images/veiculos/ecoSport/ecosport.jpg"));
+                "Ford EcoSport 2023 - Compacto e versátil","preta", "veiculos/bmw/bmw.webp"));
         veiculos.add(new Veiculo(4L, "Volkswagen", "Gol", 2023, 80000.00,
-                "Volkswagen Gol 2023 - Clássico brasileiro","amarela", "/images/veiculos/gol/gol.jpg"));
+                "Volkswagen Gol 2023 - Clássico brasileiro","amarela", "veiculos/bmw/bmw.webp"));
         veiculos.add(new Veiculo(5L, "Fiat", "Uno", 2023, 70000.00,
-                "Fiat Uno 2023 - Econômico e prático","branca", "/images/veiculos/uno/uno.jpg"));
+                "Fiat Uno 2023 - Econômico e prático","branca", "veiculos/bmw/bmw.webp"));
     }
 
     public List<Veiculo> getAllVeiculos() {

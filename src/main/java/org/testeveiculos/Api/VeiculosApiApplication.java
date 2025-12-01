@@ -1,6 +1,5 @@
-// src/main/java/org.testeveiculos.veiculosapi/VeiculosApiApplication.java
 
-package org.testeveiculos.Api; // 🛑 VERIFIQUE SE O PACOTE É ESTE!
+package org.testeveiculos.Api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
